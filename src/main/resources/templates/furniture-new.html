@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Furniture</title>
+</head>
+<body>
+<h1>Create New Furniture</h1>
+<form method="post" th:action="@{/furnitures}">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="weight">Weight:</label>
+    <input type="number" id="weight" name="weight" step="0.1" required><br><br>
+
+    <label for="shelfNbr">Shelf Number:</label>
+    <input type="number" id="shelfNbr" name="shelfNbr" required><br><br>
+
+    <label for="purchaseDate">Purchase Date:</label>
+    <input type="date" id="purchaseDate" name="purchaseDate" required><br><br>
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" name="color" required><br><br>
+
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment"></textarea><br><br>
+
+    <button type="submit">Create Furniture</button>
+</form>
+</body>
+</html>

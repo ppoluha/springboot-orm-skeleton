@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Order</title>
+</head>
+<body>
+<h1>Create Order</h1>
+<form th:action="@{/orders}" method="post">
+    <input type="hidden" th:value="${employeeId}" name="employeeId">
+    <label for="orderDate">Order Date:</label>
+    <input type="date" id="orderDate" name="orderDate" required>
+    <label for="customer">Customer:</label>
+    <select id="customer" name="customerId" required>
+        <option value="">-- Select Customer --</option>
+        <option th:each="customer : ${customers}" th:value="${customer.id}"
+                th:text="${customer.lastName + ', ' + customer.firstName}"></option>
+    </select>
+    <br><br>
+    <table>
+        <thead>
+        <tr>
+            <th>Furniture</th>
+            <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i : ${#numbers.sequence(1, 10)}">
+            <td>
+                <select name="furniture">
+                    <option value="">-- Select Furniture --</option>
+                    <option th:each="furniture : ${furnitures}" th:value="${furniture.id}"
+                            th:text="${furniture.name + ' (' + furniture.price + ')'}"></option>
+                </select>
+            </td>
+            <td>
+                <input type="number" name="quantity">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <button type="submit">Create Order</button>
+</form>
+</body>
+</html>

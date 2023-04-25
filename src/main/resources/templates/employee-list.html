@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Employees</title>
+</head>
+<body>
+<h1>List of Employees</h1>
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>City</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.firstName}"></td>
+        <td th:text="${employee.lastName}"></td>
+        <td th:text="${employee.city}"></td>
+        <td>
+            <form th:action="@{/orders/new}" method="get">
+                <input type="hidden" th:value="${employee.id}" name="employeeId">
+                <button type="submit">Create Order</button>
+            </form>
+        </td>
+        <td>
+            <form th:action="@{'/employees/' + ${employee.id} + '/orders'}" method="get">
+                <button type="submit">List Orders</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

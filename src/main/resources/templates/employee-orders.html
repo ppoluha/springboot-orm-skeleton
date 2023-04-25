@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Orders for Employee</title>
+</head>
+<body>
+<h1>Orders for Employee: <span th:text="${employee.lastName + ', ' + employee.firstName}"></span></h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Order Date</th>
+    <th>Customer</th>
+    <th>Order Lines</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.orderDate}"></td>
+    <td th:text="${order.customer.lastName + ', ' + order.customer.firstName}"></td>
+    <td>
+      <table>
+        <thead>
+        <tr>
+          <th>Furniture</th>
+          <th>Quantity</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="orderLine : ${order.orderLines}">
+          <td th:text="${orderLine.furniture.name}"></td>
+          <td th:text="${orderLine.quantity}"></td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

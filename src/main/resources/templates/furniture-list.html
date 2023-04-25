@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Furniture List</title>
+</head>
+<body>
+<h1>Furniture List</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Weight</th>
+    <th>Shelf Number</th>
+    <th>Purchase Date</th>
+    <th>Color</th>
+    <th>Price</th>
+    <th>Comment</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="furniture : ${furnitures}">
+    <td th:text="${furniture.name}"></td>
+    <td th:text="${furniture.weight}"></td>
+    <td th:text="${furniture.shelfNbr}"></td>
+    <td th:text="${furniture.purchaseDate}"></td>
+    <td th:text="${furniture.color}"></td>
+    <td th:text="${furniture.price}"></td>
+    <td th:text="${furniture.comment}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
