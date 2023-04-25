@@ -1,2 +1,2 @@
-# database-orm-demo
-Showcases Hibernate and Spring JPA
+# database-orm-demo (skeleton)
+Showcases Hibernate and Spring JPA (skeleton, to be built upon)
